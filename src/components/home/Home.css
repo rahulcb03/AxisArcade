@@ -1,0 +1,76 @@
+/* Ensures the .home element takes up the full height of the viewport and positions its content using flexbox */
+.home {
+    display: block;
+    flex-direction: column;
+    height: 100vh;
+  }
+  
+  /* Styles the header to take up the full width, stay at the top, and display its contents inline */
+  .header {
+    width: 100%;
+    position: fixed; /* Keeps the header at the top */
+    top: 0;
+    left: 0;
+    display: flex; /* Aligns items in a row */
+    align-items: center; /* Centers items vertically */
+    background-color: #f8f9fa; /* Light background, adjust as needed */
+    padding: 10px 20px; /* Adjusts the space inside the header */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Adds a subtle shadow for depth */
+    z-index: 100; /* Ensures the header is above other content */
+  }
+  
+
+  /* Adjusts the FontAwesome icon, if needed */
+  .header .faUser {
+    
+    margin-right: 10px; /* Space between the icon and the button */
+  }
+  
+  /* Styles the button inside the header */
+  .header button {
+    padding: 8px 16px;
+    background-color: #007bff; /* Example button color, adjust as needed */
+    margin-left: 20px;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.2s; /* Smooth transition for hover effect */
+  }
+  
+  .header button:hover {
+    background-color: #0056b3; /* Darker shade on hover */
+  }
+  
+  .game-collection {
+    margin-top: 100px;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); /* Creates a flexible number of columns */
+    gap: 20px; /* Space between games */
+    justify-items: center; /* Centers items horizontally in their cell */
+    padding: 20px; /* Padding around the entire grid */
+  }
+  
+  
+  .game {
+    background: transparent;
+    border-color: transparent;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%; /* Ensures the game items expand to fill their cell */
+  }
+  
+  .game img {
+    width: 100%; /* Makes the image responsive within its container */
+    height: auto; /* Maintains aspect ratio */
+    border-radius: 35px; /* Optional rounded corners for aesthetics */
+    transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out; /* Smooth transition for hover effects */
+
+  }
+
+  .game img:hover {
+    transform: translateY(-5px); /* Slightly raise the box on hover */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Enhanced shadow on hover for emphasis */
+  }
+  

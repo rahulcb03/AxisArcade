@@ -1,0 +1,26 @@
+/* Styles for the friends-list container */
+.friends-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); /* Creates a responsive grid */
+    gap: 20px; /* Space between grid items */
+    padding: 20px; /* Padding around the entire grid */
+    max-width: 100%; /* Ensures the container fits its parent */
+    box-sizing: border-box; /* Includes padding in the element's total width and height */
+  }
+  
+  /* Styles for each friend-box */
+  .friend-box {
+    background-color: #f9f9f9; /* Light background color for each box */
+    border: 1px solid #ddd; /* Light border for each box */
+    border-radius: 8px; /* Rounded corners for each box */
+    padding: 10px; /* Padding inside each box */
+    text-align: center; /* Center-align the text */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+    transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out; /* Smooth transition for hover effects */
+  }
+  
+  .friend-box:hover {
+    transform: translateY(-5px); /* Slightly raise the box on hover */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Enhanced shadow on hover for emphasis */
+  }
+  
