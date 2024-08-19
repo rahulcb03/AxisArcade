@@ -1,0 +1,106 @@
+.connectFour-div {
+    
+    
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+    
+}
+.quit-btn{
+    width: 100%;
+    position: fixed; /* Keeps the header at the top */
+    top: 0;
+    left: 0;
+    display: flex; /* Aligns items in a row */
+    height: 60px;
+    background-color: #ffffffe5; /* Light background, adjust as needed */
+    padding: 10px 20px; /* Adjusts the space inside the header */
+    justify-content: right;
+    z-index: 100; /* Ensures the header is above other content */
+}
+.quit{
+  margin-right: 90px;
+  
+  height: 60px;
+  
+}
+
+.game-container {
+    margin-top: 150px;
+    display: flex;
+    justify-content: center;
+     /* Center the content horizontally */
+    
+    height: 100vh; /* Take full height of the viewport */
+  }
+  
+  .gameBoard-component {
+    
+    margin-right: 30px;
+    width:fit-content;
+    
+  }
+  
+  
+  
+  /* Style for the information about the game like player and opponent */
+  .gameInfo {
+
+   
+    
+    padding: 20px;
+    top:200px;
+    right:10px;
+    height:300px;
+    width: 300px;
+    
+    
+    
+    font-size: 25px; /* Larger text for readability */
+    
+    
+    
+  }
+
+  .piece-display-div{
+    padding: 10px;
+    background-color: white;
+    border: 2px solid #000000; /* Light blue border */
+    box-shadow: 8px 10px 10px rgba(0, 0, 0, 0.3);
+    border-radius: 40px;
+    display: flex;
+    gap: 20px;
+  }
+
+  .opponent-display{
+    padding: 10px;
+    background-color: white;
+    border: 2px solid #000000; /* Light blue border */
+    box-shadow: 8px 10px 10px rgba(0, 0, 0, 0.3);
+    border-radius: 40px;
+    display: flex;
+  }
+  
+
+  .piece-display {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%; /* Circular display */
+    
+  }
+  
+  .action-btn {
+    padding: 10px 20px;
+    font-size: 16px;
+    color: white;
+    background-color: #007bff; /* Bootstrap primary blue */
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.2s; /* Smooth background color transition on hover */
+  }
+  
+  .action-btn:hover {
+    background-color: #0056b3; /* Darker blue on hover */
+  }
+  

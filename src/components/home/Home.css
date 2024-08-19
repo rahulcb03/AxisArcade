@@ -26,6 +26,11 @@
     margin-right: 10px; /* Space between the icon and the button */
   }
   
+  .check-icon{
+    margin-left: 10px;
+    cursor: pointer;
+  }
+  
   /* Styles the button inside the header */
   .header button {
     padding: 8px 16px;
@@ -42,13 +47,26 @@
     background-color: #0056b3; /* Darker shade on hover */
   }
   
+  .axis-arcade{
+    
+    
+    width: 95vh;
+  }
+
   .game-collection {
-    margin-top: 100px;
+    /* margin-top: 100px; */
+    margin: 20px;
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); /* Creates a flexible number of columns */
     gap: 20px; /* Space between games */
     justify-items: center; /* Centers items horizontally in their cell */
     padding: 20px; /* Padding around the entire grid */
+    border-radius: 30px;
+    border: 5px solid gray;
+  }
+
+  .description{
+    font-size: large;
   }
   
   
@@ -66,6 +84,7 @@
     height: auto; /* Maintains aspect ratio */
     border-radius: 35px; /* Optional rounded corners for aesthetics */
     transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out; /* Smooth transition for hover effects */
+    cursor: pointer;
 
   }
 
@@ -73,4 +92,41 @@
     transform: translateY(-5px); /* Slightly raise the box on hover */
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Enhanced shadow on hover for emphasis */
   }
+
+  .button, .send-Request-button {
+    display: inline-block;
+    background-color: #007bff; /* Bootstrap primary blue */
+    color: #fff;
+    padding: 8px 15px;
+    margin: 10px 5px 0 0;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  .button:hover, .send-Request-button:hover {
+    background-color: #0056b3; /* Darken on hover */
+  }
+  
+  /* Input field styling */
+  .friendRequest-input {
+    width: calc(100% - 22px); /* Full width minus padding */
+    padding: 10px;
+    margin-top: 20px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+  }
+  
+  /* Additional styles to differentiate navigation buttons from action buttons */
+  .button {
+    background-color: #f8f9fa; /* Lighter than the send button */
+    color: #333;
+  }
+  
+  .button:hover {
+    background-color: #e2e6ea; /* Slightly darker on hover */
+  }
+  
   

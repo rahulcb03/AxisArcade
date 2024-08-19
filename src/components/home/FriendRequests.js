@@ -1,5 +1,7 @@
 import React, { useState, useEffect } from "react"
-import api from "../../../api/axiosConfig"
+import api from "../../api/axiosConfig"
+import { faSquareCheck, faSquareXmark } from "@fortawesome/free-solid-svg-icons"; 
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 const FriendRequests = ()=>{
 
@@ -27,6 +29,7 @@ const FriendRequests = ()=>{
             const response = await api.post(`/api/v1/friend-request/${friendRequest.id}/accept`);
             
             if(response.status === 200){
+
                 console.log("accepted")
             }
         } catch (error) {
@@ -40,7 +43,9 @@ const FriendRequests = ()=>{
             {friendRequests && friendRequests.map((friend, index) => (
                 <div key={index} className="friend-box">
                     {friend.username}
-                    <button className="accept-friend-request-button" onClick={()=>acceptFriendRequest(friend)}>accept</button>
+                    
+                    <FontAwesomeIcon className="check-icon"onClick={()=>acceptFriendRequest(friend)}icon={faSquareCheck} size=""/>
+                    
                 </div>
                 
             ))}

@@ -2,13 +2,14 @@ import React from 'react';
 import { useNavigate } from 'react-router-dom';
 import api from '../../api/axiosConfig';
 import {useState} from 'react';
+import AxisArcade from "../../img/Axis-Arcade-Title.png"
 
 import "./Login.css";
 
 
 
 
-const Login = () => {
+const Login = ({setAuth}) => {
 
     const [message, setMessage] = useState('');
     const [username, setUsername] = useState('');
@@ -30,11 +31,14 @@ const Login = () => {
         event.preventDefault();
 
         try {
+            localStorage.clear();
+            setAuth(false)
             const response = await api.post(`/api/v1/auth/signin`, {username:username, password:password}); 
             if(response.status==200){
                  
                 localStorage.setItem("token", response.data.token);
                 localStorage.setItem("refreshToken", response.data.refreshToken);
+                setAuth(true)
                 navigate("/home")
             }
         } catch (error) {
@@ -48,10 +52,16 @@ const Login = () => {
     
     return (
         <div className='login-entry'>
-           
+            <img className="axis-arcade"src={AxisArcade}></img>
+            
             <form onSubmit={handleLogin} className='login-form'>
                 
+                <div className='label'>
+                    <label htmlFor="username" >Username:</label>
+                </div>
+                
                 <input
+                    id="username"
                     type="text"
                     value={username}
                     onChange={handleUsernameChange}
@@ -59,7 +69,12 @@ const Login = () => {
                     className='username-input'
                     required
                 />
+                <div className='label'>
+                    <label htmlFor="password" >Password:</label>
+                </div>
+                
                 <input
+                    id="password"
                     type="password"
                     value={password}
                     onChange={handlePasswordChange}

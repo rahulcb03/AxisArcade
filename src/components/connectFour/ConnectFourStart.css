@@ -1,0 +1,78 @@
+.game-start-div {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh; /* Use full screen height */
+    
+  }
+  
+  .game-start-div img {
+    max-width: 70%; /* Make sure the image is responsive */
+    height: auto;
+    margin-top: -50px;
+  }
+  
+  .start-buttons-div {
+    display: flex;
+    gap: 100px; /* Space between buttons */
+    margin-top: 50px; /* Space above the buttons */
+  }
+  
+  .start-buttons-div button {
+    padding: 20px 30px; /* Increased padding for larger buttons */
+    font-size: 25px; /* Larger font size for better readability */
+    border: none;
+    border-radius: 10px;
+    background-color: #007bff; /* Bootstrap primary blue */
+    color: white;
+    cursor: pointer;
+    transition: background-color 0.3s ease; /* Smooth background color transition on hover */
+  }
+  
+  .start-buttons-div button:hover {
+    background-color: #0056b3; /* A darker blue on hover */
+  }
+  
+  .message-div {
+    margin-top: 20px; /* Space above the message div */
+  }
+
+  .message-div button{
+    padding: 10px 30px; /* Increased padding for larger buttons */
+    font-size: 19px; /* Larger font size for better readability */
+    border: none;
+    border-radius: 10px;
+    background-color: #007bff; /* Bootstrap primary blue */
+    color: white;
+    cursor: pointer;
+    transition: background-color 0.3s ease; /* Smooth background color transition on hover */
+  }
+
+  .message-div button:hover{
+    background-color: #0056b3; /* A darker blue on hover */
+  }
+
+  
+  .modal-startGame-content button{
+    padding: 10px 20px;
+    border-radius: 5px;
+    border: none; 
+
+    background-color: #007bff; /* Bootstrap primary blue */
+    color: white;
+    cursor: pointer;
+    transition: background-color 0.3s ease; /* Smooth background color transition on hover */
+  }
+
+  .modal-startGame-content button:hover{
+    background-color: #0056b3; /* A darker blue on hover */
+  }
+  
+
+  .modal-startGame-content p{
+    margin-bottom: 10px; /* Spacing below paragraph */
+    
+  }
+  
+  

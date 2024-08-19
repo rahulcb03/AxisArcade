@@ -35,39 +35,4 @@
   }
   
   /* General button styling */
-  .button, .send-Request-button {
-    display: inline-block;
-    background-color: #007bff; /* Bootstrap primary blue */
-    color: #fff;
-    padding: 8px 15px;
-    margin: 10px 5px 0 0;
-    border: none;
-    border-radius: 4px;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
-  }
-  
-  .button:hover, .send-Request-button:hover {
-    background-color: #0056b3; /* Darken on hover */
-  }
-  
-  /* Input field styling */
-  input {
-    width: calc(100% - 22px); /* Full width minus padding */
-    padding: 10px;
-    margin-top: 20px;
-    margin-bottom: 10px;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-  }
-  
-  /* Additional styles to differentiate navigation buttons from action buttons */
-  .button {
-    background-color: #f8f9fa; /* Lighter than the send button */
-    color: #333;
-  }
-  
-  .button:hover {
-    background-color: #e2e6ea; /* Slightly darker on hover */
-  }
   

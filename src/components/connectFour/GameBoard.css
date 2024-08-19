@@ -1,0 +1,84 @@
+.board-container {
+    display: flex; /* Use flexbox for easier centering */
+  justify-content: center; /* Center horizontally */
+    position: relative;
+    width: 800px; /* Adjust based on your board image size */
+     /* Adjust based on your board image size */
+    
+    
+  }
+  
+  .board-image {
+    width: 100%;
+    height: auto;
+    
+  }
+  
+  .piece {
+    position: absolute;
+    margin-top: 38px;
+    margin-left: 80px;
+    position: absolute;
+    width: 73px; /* Adjust the size of your pieces */
+    height: 73px;
+    border-radius: 50%; /* Circular pieces */
+    cursor: pointer;
+    animation: drop 0.5s ease-in;
+    z-index: -1;
+  }
+  
+  .red {
+    background-color: red;
+    
+  }
+  
+  .yellow {
+    background-color: yellow;
+  }
+
+.column-buttons {
+    
+    position: absolute;
+    justify-content: center;
+    
+     width:90%;
+     
+     z-index: 100;
+}
+
+.triangle-selctions {
+    position: absolute;
+    top: -20px; /* Adjust this value to position triangles above the board */
+    width:65px;
+   
+    display: flex;
+    
+  }
+  
+  .triangle-selctions img {
+    width: 100%; /* Adjust based on the size of your triangle images */
+    height: auto; /* Maintain aspect ratio of triangles */
+  }
+  
+
+.column-btn {
+    background-color: transparent;
+    border-color: transparent;
+    padding: 5px 10px; /* Adjust padding to your liking */
+    height:600px;
+    width: 14%;
+    cursor: pointer;
+
+}
+
+  
+@keyframes drop {
+    from {
+        transform: translateY(-900px);
+    }
+    to {
+        transform: translateY(0); /* End position is always the actual position */
+    }
+}
+      
+  

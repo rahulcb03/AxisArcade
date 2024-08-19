@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from "react"
-import api from "../../../api/axiosConfig"
+import api from "../../api/axiosConfig"
 import "./Friends.css"
 
-const Friends = () =>{
+const Friends = ({onSelect}) =>{
     const[friends, setFriends] = useState([])
 
     useEffect(()=>{
@@ -25,9 +25,9 @@ const Friends = () =>{
         <div>
             <div className="friends-list">
                 {friends && friends.map((friend, index) => (
-                    <div key={index} className="friend-box">
+                    <button onClick={()=>onSelect(friend)}key={index} className="friend-box">
                         {friend.username}
-                    </div>
+                    </button>
                 ))}
             </div>
         </div>

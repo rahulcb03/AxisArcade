@@ -1,7 +1,8 @@
 import axios from 'axios';
+import { useNavigate } from 'react-router-dom';
 
 const api = axios.create({
-  baseURL: 'https://5df0-24-228-179-164.ngrok-free.app',
+  baseURL: 'http://54.92.130.37:8080',
   headers: {"ngrok-skip-browser-warning":"true"}
 });
 
@@ -24,6 +25,7 @@ api.interceptors.request.use(
 //intercept the forbidden response then refresh the token and try the request again
 api.interceptors.response.use(response => response, async error => {
     const originalRequest = error.config;
+    
 
     if (error.response.status === 401 && !originalRequest._retry) {
 
@@ -43,7 +45,8 @@ api.interceptors.response.use(response => response, async error => {
 
       } catch (refreshError) {
 
-        // Redirect to login or handle failed refresh
+        localStorage.clear();
+        
         return Promise.reject(refreshError);
       }
     }

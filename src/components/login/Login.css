@@ -8,12 +8,13 @@ body, html {
 .login-entry {
     display: flex;
     flex-direction: column;
-    justify-content: center;
+    
     align-items: center;
     height: 100vh;
 }
 
 .login-form {
+    margin-top:40px;
     background-color: rgb(178, 182, 182); /* Light background for the form */
     display: flex;
     flex-direction: column;
@@ -30,11 +31,18 @@ body, html {
 
 .login-form input {
     width: calc(100% - 4rem); /* Adjust width to account for padding */
-    margin-bottom: 1rem;
+    margin-bottom: 1.5rem;
+    margin-top:5px;
     padding: 0.75rem;
     border-radius: 20px;
     border: 2px solid #000000; /* Light blue border */
     font-size: 1rem;
+}
+
+.label{
+    width: calc(100% - 4rem);
+    display: flex;
+    justify-content: left;
 }
 
 .login-form button {
@@ -54,8 +62,10 @@ body, html {
 }
 
 .login-form .login-links{
+    display: flex;
+    flex-direction: column;
     position: relative;
-    right: 20px;
+    gap:10px
 }
 
 .login-links p{
@@ -65,7 +75,7 @@ body, html {
 
 .login-links {
     display: flex;
-    justify-content: center;
+    justify-content:center;
     align-items: center;
     margin-top: 1rem; /* Add margin top for spacing */
 }
