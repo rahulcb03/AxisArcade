@@ -1,9 +1,9 @@
 import React, { useState } from "react";
 import "./GameBoard.css"
-import Board from "../../img/board.png"
-import RedPice from "../../img/red-piece.png"
-import YellowPice from "../../img/yellow-piece.png"
-import Triangle from "../../img/select-triangle.png"
+import Board from "../../../img/board.png"
+import RedPice from "../../../img/red-piece.png"
+import YellowPice from "../../../img/yellow-piece.png"
+import Triangle from "../../../img/select-triangle.png"
 
 const GameBoard= ({ board, onColumnClick }) =>{
     const [column , setColumn] = useState()

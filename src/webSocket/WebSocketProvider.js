@@ -10,7 +10,6 @@ export const WebSocketContext = createContext(false, null, () => {})
 // the component tree than any consumer.
 export const WebSocketProvider = ({  setInvite, isAuth, children }) => {
   const [isReady, setIsReady] = useState(false)
-  
   const [val, setVal] = useState(null)
 
   const ws = useRef(null)
@@ -35,7 +34,12 @@ export const WebSocketProvider = ({  setInvite, isAuth, children }) => {
         setInvite(message)
       }
       if(message.type === "started"){
-        naviagte(`/game/connect-four/${message.gameId}`)
+        switch (message.game){
+          case "Connect Four":
+            naviagte(`/game/connect-four/${message.gameId}`)
+            break;
+        }
+        
       }
       setVal(event.data)
     }

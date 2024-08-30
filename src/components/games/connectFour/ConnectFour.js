@@ -1,14 +1,14 @@
 import React, { useContext, useEffect, useState } from "react";
-import { WebSocketContext } from "../../webSocket/WebSocketProvider";
+import { WebSocketContext } from "../../../webSocket/WebSocketProvider";
 import { useNavigate, useParams } from "react-router-dom";
-import { UserContext } from "../../userDetails/UserDetailsProvider";
+import { UserContext } from "../../../userDetails/UserDetailsProvider";
 import GameBoard from "./GameBoard";
-import RedPice from "../../img/red-piece.png"
-import YellowPice from "../../img/yellow-piece.png"
+import RedPice from "../../../img/red-piece.png"
+import YellowPice from "../../../img/yellow-piece.png"
 import "./ConnectFour.css"
-import Modal from "../home/modal/Modal";
-import DropSound from "../../sound/dropSound.mp3"
-import ClickSound from "../../sound/click.mp3"
+import Modal from "../../home/modal/Modal";
+import DropSound from "../../../sound/dropSound.mp3"
+import ClickSound from "../../../sound/click.mp3"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {faRectangleXmark } from "@fortawesome/free-regular-svg-icons"; 
 
@@ -41,8 +41,10 @@ const ConnectFour = ()=>{
     const sendMove = ()=>{
         if(ready){
             const obj = {
-                "type":"move",
+                "type":"game",
                 "payload":{
+                    "command":"move",
+                    "game":"Connect Four",
                     "gameId": gameId,
                     "column": column,
                     "userId" : userId
@@ -56,8 +58,10 @@ const ConnectFour = ()=>{
     const sendQuit = ()=>{
         if(ready){
             const obj = {
-                "type":"quit",
+                "type":"game",
                 "payload":{
+                    "command":"quit",
+                    "game":"Connect Four",
                     "gameId": gameId,
                 }
             }

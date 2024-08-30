@@ -4,8 +4,10 @@ import './App.css';
 import ProtectedRoutes from './components/ProtectedRoutes';
 import Login from './components/login/Login';
 import Home from './components/home/Home';
-import ConnectFourStart from './components/connectFour/ConnectFourStart';
-import ConnectFour from './components/connectFour/ConnectFour';
+import GameStart from './components/games/GameStart';
+import ConnectFour from './components/games/connectFour/ConnectFour';
+import ConnectFourTitle from './img/connect-four-title.png';
+import BattleshipTitle from './img/battleship-title.png';
 import { WebSocketContext, WebSocketProvider } from './webSocket/WebSocketProvider';
 import { UserContext, UserProvider } from './userDetails/UserDetailsProvider';
 import { useContext, useState } from 'react';
@@ -14,6 +16,7 @@ import ForgotPassword from './components/resetPassword/ForgotPassword';
 import ResetPassword from './components/resetPassword/ResetPassword';
 import Modal from './components/home/modal/Modal';
 import InviteNotification from "./components/inviteNotification/InviteNotification"
+import Battleship from './components/games/battleship/Battleship';
 
 function App() {
 
@@ -31,8 +34,12 @@ function App() {
             <Route element={<ProtectedRoutes/>}>
               
               <Route path='/home' element={<Home/>}></Route>
-              <Route path='/game/connect-four' element={<ConnectFourStart/>}></Route>
+
+              <Route path='/game/connect-four' element={<GameStart img={ConnectFourTitle} gameName={"Connect Four"} urlNav={"/game/connect-four/"}/>}></Route>
               <Route path='/game/connect-four/:gameId' element={<ConnectFour/>}></Route>
+
+              <Route path='/game/battleship' element={<GameStart img={BattleshipTitle} gameName={"Battleship"} urlNav={"/game/battleship/"}/>}></Route>
+              <Route path='/game/battleship/:gameId' element={<Battleship/>}></Route>
 
             </Route>
             <Route path='/login' element={<Login setAuth={setIsAuth}/>}></Route>

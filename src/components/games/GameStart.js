@@ -1,15 +1,13 @@
 import React, { useContext, useEffect, useState } from "react";
-import Title from "../../img/connect-four-title.png"
 import Modal from "../home/modal/Modal";
 import Friends from "../home/Friends";
 import { WebSocketContext } from "../../webSocket/WebSocketProvider";
 import { useNavigate } from "react-router-dom";
-import "./ConnectFourStart.css";
+import "./GameStart.css";
 import { UserContext } from "../../userDetails/UserDetailsProvider";
 
 
-
-const ConnectFourStart = () =>{
+const GameStart = ({img, gameName, urlNav}) =>{
     const [isModalActive, setIsModalActive] = useState(false)
     const [selectedFriend, setSelectedFriend] = useState(null)
     const [gameState, setGameState] = useState("")
@@ -35,7 +33,7 @@ const ConnectFourStart = () =>{
         
         if(type==="started"){
             setGameState("starting")
-            navigate(`/game/connect-four/${message.gameId}`)
+            navigate(`${urlNav}${message.gameId}`)
         }
 
         if(type==="wait"){
@@ -66,6 +64,7 @@ const ConnectFourStart = () =>{
             const obj = {
                 "type": "invite",
                 "payload": {
+                    "game":gameName,
                     "recipUsername": selectedFriend.username,
                     "userId": userId
                 }
@@ -79,8 +78,10 @@ const ConnectFourStart = () =>{
     const sendStartGame = () =>{
         if(ready){
             const obj = {
-                "type": "start",
+                "type": "game",
                 "payload": {
+                    "command":"start",
+                    "game":gameName,
                     "userId": userId
                 }
             }
@@ -96,6 +97,7 @@ const ConnectFourStart = () =>{
             const obj = {
                 "type": "cancel",
                 "payload": {
+                    "game" : gameName,
                     "userId": userId
                 }
             }
@@ -108,7 +110,7 @@ const ConnectFourStart = () =>{
     
     return (
         <div className="game-start-div">
-            <img src={Title}></img>
+            <img src={img}></img>
 
             <div className="start-buttons-div">
                 <button onClick={sendStartGame}>Join Open Queue</button>
@@ -159,4 +161,4 @@ const ConnectFourStart = () =>{
     )
 }
 
-export default ConnectFourStart;
+export default GameStart;
