@@ -5,13 +5,14 @@ import { WebSocketContext } from "../../../webSocket/WebSocketProvider";
 import { UserContext } from "../../../userDetails/UserDetailsProvider";
 import TargetBoard from "./TargetBoard";
 import OceanBoard from "./OceanBoard";
+import Modal from "../../home/modal/Modal";
 
 
 const Battleship=()=>{
     const { gameId } = useParams(); 
 
     const [setup, setSetup] = useState(true)
-    const [firing, setFiring] = useState(false)
+    const [gameState, setGameState] = useState("firing")
     const [message, setMessage] = useState("Drag the ships to setup board")
     const [targetBoard, setTargetBoard] = useState(
         Array.from({ length: 10 }, () => Array(10).fill(null))
@@ -31,13 +32,13 @@ const Battleship=()=>{
 
         if(type==="readyToFire"){
             setSetup(false)
-            setFiring(message.status === "fire")
+            setGameState(message.status === "fire" ? "firing" : "wait")
             setMessage(message.status === "fire" ? "Selecting a firing location": "Waiting For Opponent")
         }
 
         if(type === "hit" || type === "miss" || type === "sink"){
             setTargetBoard(message.targetBoard)
-            setFiring(false)
+            setGameState("waiting")
             setMessage(type ==="hit" ? "You have hit your oppoenents ship at {FIX}" : 
                 type ==="miss" ? "You missed":
                 type ==="sink" ? "You sunk one of your oppoents shipes" : "ERROR")
@@ -45,7 +46,7 @@ const Battleship=()=>{
 
         if(type.startsWith("opponent")){
             setOceanBoard(message.oceanBoard)
-            setFiring(true)
+            setGameState("firing")
             const arr = type.split(" ")
             setMessage(arr[1] === "hit" ? "Opponent has hit your ship" : 
             arr[1] ==="miss" ? "Opponent has missed" :
@@ -56,6 +57,21 @@ const Battleship=()=>{
         if(type === "invalid"){
             setMessage(message.message)
         }
+
+        if(type === "game over"){
+            setGameState("game over")
+            setMessage(message.message)
+        }
+
+        if(type === "wait"){
+            setSetup(false)
+            setOceanBoard(message.oceanBoard)
+            setGameState("waiting")
+            setMessage("Waiting for oppoent to complete setup")
+            console.log(message)
+            
+        }
+
         
     }, [val])
 
@@ -68,7 +84,7 @@ const Battleship=()=>{
             <div>
                 <div>BATTLESHIP</div>
                 <div style={{ display: 'flex', justifyContent: 'space-around' }}>
-                    <TargetBoard targetBoard={targetBoard} firing={firing}/>
+                    <TargetBoard targetBoard={targetBoard} firing={gameState === "firing"}/>
                     <OceanBoard oceanBoard={oceanBoard}/>
                     
                 </div>
@@ -78,6 +94,9 @@ const Battleship=()=>{
             </div>
    
             }
+           <Modal isOpen={gameState==="game over"} onClose={()=>navigate("/home")}>
+                <p>{message}</p>
+            </Modal>
 
         </div>
     )
